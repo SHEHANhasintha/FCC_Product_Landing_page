@@ -6,93 +6,378 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
-	<script type="text/javascript" src="
-	https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js
-	"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
-	<script type="text/javascript" src="js/js.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.3/video-js.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.3/video.js"></script>
+
+	<style>
+
+:root{
+	--sliderHeight: 250px;
+	--headerHeight: 50px;
+	--topMargin: 100px;
+	--footerHeight: 110px;
+}
+
+body{
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0px;
+	padding: 0px;
+	background-image: url('images/images.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: auto;
+	z-index: -1;
+	height: auto;
+	overflow-x: hidden;
+}
+body::before{
+	content: "";
+	height: 200vh;
+	width: 200vw;
+	background: #000a;
+	z-index: 1;
+	position: fixed;
+}
+
+header{
+
+	height: var(--headerHeight);
+	width: 100vw;
+	position:  relative;
+	z-index: 5;
+}
+
+nav div{
+	display: flex;
+	flex-direction: row;
+	width: 50vw;
+	height: 50px;
+	justify-content: space-around;
+	text-align: center;
+	vertical-align: center;
+	margin-top: 20px;
+
+}
+
+nav div *{
+	width: 75px;
+		background-color: #4556;
+		height: 20px;
+		padding: 10px;
+		color: #fffa;
+		text-decoration: none;
+		text-transform: capitalize;
+}
+nav{
+	position: fixed;
+		display: flex;
+	flex-direction: column;
+	width: 100vw;
+	justify-content: space-between;
+	align-items: center;
+	height:  50px;
+}
+
+
+#header-img{
+	margin-top: 10px;
+	width: 350px;
+	height: auto;
+}
+
+.form-div{
+
+	margin: var(--topMargin) auto 0px auto;
+
+	z-index: 2;
+}
+
+form[name="email-form"]{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+
+
+footer button{
+	background: #fff;
+	border: solid 2px #0005;
+	border-radius: 5px;
+	width: 100px;
+	height: 50px;
+	margin-top: 25px;
+
+}
+article{
+	grid-area: footerArticle;
+	text-align: center;
+	padding: 0px 2vw;
+
+	text-indent: 100px;
+}
+
+footer h2{
+	grid-area:  footerh2;
+	font-size: 15px;
+	text-indent: 0px;
+
+}
+
+.footerbutton{
+	grid-area: footerbutton;
+}
+
+footer {
+	display: grid;
+	margin: auto;
+	grid-template-columns: 1fr 150px;
+	grid-template-areas: 
+	"footerh2 footerbutton"
+	"footerArticle footerbutton"
+	;
+
+
+}
+
+input[type="text"],input[type="email"]{
+	background: none;
+	border: none;
+	outline: 0px;
+	color: #fff;
+	font-size: 20px;
+	vertical-align: center;
+	width: 300px;
+
+}
+
+
+
+input[type="text"]::placeholder,input[type="email"]::placeholder{
+	color: #fffa;
+	font-size: 20px;
+}
+
+.slider{
+	width: 100vw;
+	height: var(--sliderHeight);
+	background: #0009;
+	cursor: pointer;
+
+}
+
+#section1{
+	display: flex;
+	justify-content: space-around;
+	max-width: 800px;
+		margin: auto;
+		position: relative;
+		top: 70px;
+
+}
+
+.object{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	z-index: 4;
+	background: #fffa;
+	box-shadow: 0px 0px 5px 5px #fff3;
+	
+}
+
+.Object > img{
+	transform: rotate(-90deg);
+	width: 200px;
+	height: auto;
+	margin: auto;
+	position: relative;
+	left: -17%;
+	right: -17%;
+	top: -17%;
+	bottom: -17%;
+}
+
+input[type="submit"]{
+	background: none;
+	width: 100px;
+	height: 40px;
+	color: #fff;
+	border: solid 2px #fff;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-left: 20px;
+}
+
+.switch{
+	width: 100vw;
+	height: auto;
+	background: #fff5;
+
+	position: relative;
+	top: 0px;
+
+}
+
+.switch div{
+	max-width: 60vw;
+	display: flex;
+		margin: auto;
+	width: 100%;
+	height: 100%;
+
+
+}
+
+.switch  button{
+	width: 70px;
+	height: 40px;
+	background: none;
+	z-index: 4;
+	margin: 10px auto;
+	border: solid 1px #fff;
+	border-radius: 20px;
+	color: #fffc;
+	font-size: 15px;
+}
+
+
+footer{
+	height: var(--footerHeight);
+	width: 100vw;
+	background: #fffa;
+	z-index: 4;
+	position: relative
+	;
+	bottom:  0px;
+
+}
+
+footer h2{
+	font-family: "Segoe UI";
+	text-align: center;
+}
+
+video{
+	position: relative;
+	z-index: 5;
+}
+
+@media (max-width: 1000px){
+	body{
+		max-width: auto;
+	}
+}
+
+
+</style>
 </head>
 <body>
-<div id="area">
 <header id="header">
+
 	<nav id="nav-bar">
+		<img src="images/logo.png" id="header-img" alt="company_logo"/>
+		<div>
 		<a  href="#section1" class="nav-link">section1</a>
 		<a href="#section2" class="nav-link">section2</a>
 		<a href="#section3" class="nav-link">section3</a>
+		</div>
+
 	</nav>
-	<div><img src="" id="header-img" alt="company_logo"/></div>
+
 
 </header>
 
-<div>
+
+<div class="form-div">
 	<form action="https://www.freecodecamp.com/email-submit" id="form" name="email-form">
 <input  id="email" name="email" placeholder="Enter your email address"  type="email">
-		<input type="submit" id="submit">
+		<input type="submit" id="submit" value="Submit">
 	</form>
 </div>
-<div>
-	<video src="" id="video"></video>
-</div>
-<section id="section1"></section>
+
+<div class="slider">
+<section id="section1">
+	<div class="object">
+		<img src="images/3fa46638-d29e-48c8-ac48-be4fb277039f.png">
+	</div>
+	<div class="object">
+		<img src="images/203293-L-LO.png">
+	</div>
+	<div class="object">
+		<img src="images/lg_3063fe50a4eb919860dc24a3352c620b.png">
+	</div>	
+</section>
 <section id="section2"></section>
 <section id="section3"></section>
 </div>
-
-
-<div id="videoBkground">
-	<video src="" id="video"></video>
+<div class="switch">
+	<div>
+	<button type="button" class="indicators">select</button>
+	<button type="button" class="indicators">select</button>
+	<button type="button" class="indicators">select</button>
+</div>
 </div>
 
-<div id="fixedBkground">
+<footer>
+	<h2>Find great deals on AstriK Guitars for Archtop Acoustic Guitar in Vintage Acoustic Guitars. Shop with confidence.</h2>
 
-</div>
 
-<div id="nav">
-<header id="header">
-	<nav id="nav-bar">
-		<a  href="#section1" class="nav-link">section1</a>
-		<a href="#section2" class="nav-link">section2</a>
-		<a href="#section3" class="nav-link">section3</a>
-	</nav>
-	<div><img src="" id="header-img" alt="company_logo"/></div>
-</header>
-</div>
+	<article>A resonator guitar or resophonic guitar is an acoustic guitar that produces sound by conducting string vibrations through the bridge to one or more spun metal cones (resonators),
+instead of to the guitar's sounding board (top). ... Resonator guitars are of two styles: Square-necked guitars played in lap steel guitar style.
+</article>
 
-<div id="switches">
+	<button class="footerbutton" play type="button">Buy Now</button>
 
-</div>
+</footer>
 
-<div id="LinTyrheart">
 
-</div>
 
-<div id="onediscription">
 
-</div>
+<script>window.HELP_IMPROVE_VIDEOJS = false;</script>
+<video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="//vjs.zencdn.net/v/oceans.png"
+    data-setup='{}'>
+  <source src="videos/Believer.mp4" type="video/mp4"></source>
 
-<div id="twodiscription">
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video>
 
-</div>
 
-<div id="threediscription">
+</canvas>
 
-</div>
+	<div>
 
-<div id="email">
-	<form action="https://www.freecodecamp.com/email-submit" id="form" name="email-form">
-<input  id="email" name="email" placeholder="Enter your email address"  type="email">
-		<input type="submit" id="submit">
-	</form>
-</div>
 
-<div id="canvas">
+	</div>
 
-</div>
-
+<script type="text/javascript" src="js/js.js"></script>
 
 </body>
 </html>
+
+original
+AIzaSyDQyNHtU7lAxHK6AUaHG77KAvL6PlQwznI
