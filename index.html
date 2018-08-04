@@ -17,13 +17,16 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.3/video-js.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.3/video.js"></script>
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
 	<style>
 
 :root{
 	--sliderHeight: 250px;
 	--headerHeight: 50px;
 	--topMargin: 100px;
-	--footerHeight: 110px;
+	--footerHeight: 130px;
 }
 
 body{
@@ -42,6 +45,7 @@ body{
 	z-index: -1;
 	height: auto;
 	overflow-x: hidden;
+	outline: 0px;
 }
 body::before{
 	content: "";
@@ -58,6 +62,7 @@ header{
 	width: 100vw;
 	position:  relative;
 	z-index: 5;
+
 }
 
 nav div{
@@ -88,7 +93,8 @@ nav{
 	width: 100vw;
 	justify-content: space-between;
 	align-items: center;
-	height:  50px;
+	height:  130px;
+	transition: 1s background-color;
 }
 
 
@@ -260,9 +266,8 @@ footer{
 	width: 100vw;
 	background: #fffa;
 	z-index: 4;
-	position: relative
-	;
-	bottom:  0px;
+	position: relative;
+
 
 }
 
@@ -271,9 +276,44 @@ footer h2{
 	text-align: center;
 }
 
-video{
+iframe{
 	position: relative;
+
+	top: 0px;
+	bottom: 0px;
 	z-index: 5;
+	width: 50vw ;
+	height: 50vh ;
+	margin: 20px 0px;
+}
+
+a{
+	transition: 0.3s background-color;
+}
+
+a:hover{
+	background-color: #689;
+}
+button{
+	transition: 0.3s background-color;
+}
+
+button:hover{
+	background-color: #889;
+}
+input[type="submit"]{
+	transition: 0.3s background-color;
+}
+
+input[type="submit"]:hover{
+	background-color: #845;
+}
+
+.fab{
+	padding: 0px;
+	margin: 0px;
+	text-indent: 10px;
+	cursor: pointer;
 }
 
 @media (max-width: 1000px){
@@ -291,9 +331,9 @@ video{
 	<nav id="nav-bar">
 		<img src="images/logo.png" id="header-img" alt="company_logo"/>
 		<div>
-		<a  href="#section1" class="nav-link">section1</a>
-		<a href="#section2" class="nav-link">section2</a>
-		<a href="#section3" class="nav-link">section3</a>
+		<a  href="#section1" class="nav-link">Choice</a>
+		<a href="#section2" class="nav-link">Video</a>
+		<a href="#section3" class="nav-link">Media</a>
 		</div>
 
 	</nav>
@@ -309,7 +349,21 @@ video{
 	</form>
 </div>
 
+
+<script>window.HELP_IMPROVE_VIDEOJS = false;
+
+</script>
+
+
 <div class="slider">
+
+
+
+
+
+
+
+
 <section id="section1">
 	<div class="object">
 		<img src="images/3fa46638-d29e-48c8-ac48-be4fb277039f.png">
@@ -332,6 +386,14 @@ video{
 </div>
 </div>
 
+
+<iframe id="video" width="852" height="480" src="https://www.youtube.com/embed/vSakoBvdIvU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+
+
+
+
 <footer>
 	<h2>Find great deals on AstriK Guitars for Archtop Acoustic Guitar in Vintage Acoustic Guitars. Shop with confidence.</h2>
 
@@ -341,43 +403,28 @@ instead of to the guitar's sounding board (top). ... Resonator guitars are of tw
 </article>
 
 	<button class="footerbutton" play type="button">Buy Now</button>
+<div>
+ <article style="text-align: left;color:#a55;">This page is dadicated for the training purposes on FCC(FreeCodeCamp.com):Foundation : <a href = "https://www.freecodecamp.org/"><i class="fab fa-free-code-camp"></i></a><a href = "https://www.facebook.com/shehan.hasintha.9"><i class="fab fa-facebook-f"></i></a><a href = "https://github.com/SHEHANhasintha"><i class="fab fa-github"></i></a></article>
 
+</div>
 </footer>
 
 
 
 
-<script>window.HELP_IMPROVE_VIDEOJS = false;</script>
-<video
-    id="my-player"
-    class="video-js"
-    controls
-    preload="auto"
-    poster="//vjs.zencdn.net/v/oceans.png"
-    data-setup='{}'>
-  <source src="videos/Believer.mp4" type="video/mp4"></source>
-
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a
-    web browser that
-    <a href="http://videojs.com/html5-video-support/" target="_blank">
-      supports HTML5 video
-    </a>
-  </p>
-</video>
-
-
-</canvas>
-
-	<div>
-
-
-	</div>
-
 <script type="text/javascript" src="js/js.js"></script>
+<script>
+	const nav = document.getElementsByTagName("nav")[0];
+	document.addEventListener("scroll", (e) => {
+		if (e.pageY > 2){
+			nav.style.backgroundColor = "#700";
+		}else{
+			nav.style.backgroundColor = "#7000";
+		}
+	})
 
+</script>
 </body>
 </html>
 
-original
-AIzaSyDQyNHtU7lAxHK6AUaHG77KAvL6PlQwznI
+
