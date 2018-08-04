@@ -22,6 +22,7 @@
 
 	<style>
 
+
 :root{
 	--sliderHeight: 250px;
 	--headerHeight: 50px;
@@ -30,26 +31,27 @@
 }
 
 body{
-
+	background-image: url('https://lh6.googleusercontent.com/FLwuKNP0zR81hvzjRuEJNSAguY9H6z0kNJG-0JczaSWrFLbZGmGhhkisznJGFJGwyrrRcv4j-v4oMa-yM4MQ=w1366-h631');
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	margin: 0px;
 	padding: 0px;
-	background-image: url('images/images.jpg');
+
 	background-position: center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: auto;
+	background-size: 100vw;
 	z-index: -1;
 	height: auto;
 	overflow-x: hidden;
 	outline: 0px;
+
 }
 body::before{
 	content: "";
-	height: 200vh;
+	height: 100%;
 	width: 200vw;
 	background: #000a;
 	z-index: 1;
@@ -196,8 +198,10 @@ input[type="text"]::placeholder,input[type="email"]::placeholder{
 }
 
 .object{
-	width: 150px;
-	height: 150px;
+	width: 150px !important;
+	height: 150px !important;
+  	max-width: 150px !important;
+	max-height: 150px !important;
 	border-radius: 50%;
 	z-index: 4;
 	background: #fffa;
@@ -205,11 +209,12 @@ input[type="text"]::placeholder,input[type="email"]::placeholder{
 	
 }
 
-.Object > img{
+div > img{
+  -webkit-transform: rotate(-90deg);
+  -ms-trnsform:rotate(-90deg);
 	transform: rotate(-90deg);
 	width: 200px;
 	height: auto;
-	margin: auto;
 	position: relative;
 	left: -17%;
 	right: -17%;
@@ -278,10 +283,10 @@ footer h2{
 
 iframe{
 	position: relative;
-
+  min-height:320px;
 	top: 0px;
 	bottom: 0px;
-	z-index: 5;
+	z-index: 3;
 	width: 50vw ;
 	height: 50vh ;
 	margin: 20px 0px;
@@ -290,6 +295,7 @@ iframe{
 a{
 	transition: 0.3s background-color;
 }
+
 
 a:hover{
 	background-color: #689;
@@ -321,7 +327,6 @@ input[type="submit"]:hover{
 		max-width: auto;
 	}
 }
-
 
 </style>
 </head>
