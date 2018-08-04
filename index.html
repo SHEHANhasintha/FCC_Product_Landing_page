@@ -29,7 +29,6 @@
 	--sliderHeight: 250px;
 	--headerHeight: 50px;
 	--topMargin: 100px;
-	--footerHeight: 130px;
 }
 
 body{
@@ -57,6 +56,18 @@ body::before{
 	width: 200vw;
 	background: #000a;
 	z-index: 1;
+	position: fixed;
+}
+
+.area{
+	height: 1000%;
+	width: 200vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background: #eee;
+	z-index: 20;
 	position: fixed;
 }
 
@@ -112,9 +123,7 @@ nav{
 }
 
 .form-div{
-
 	margin: var(--topMargin) auto 20px auto;
-
 	z-index: 2;
 }
 
@@ -132,7 +141,7 @@ footer button{
 	border-radius: 5px;
 	width: 100px;
 	height: 50px;
-	margin-top: 25px;
+	margin: 25px auto;
 
 }
 article{
@@ -140,8 +149,9 @@ article{
 	text-align: center;
 	padding: 0px 2vw;
 
-	text-indent: 100px;
+
 }
+
 
 footer h2{
 	grid-area:  footerh2;
@@ -157,13 +167,6 @@ footer h2{
 footer {
 	display: grid;
 	margin: auto;
-	grid-template-columns: 1fr 150px;
-	grid-template-areas: 
-	"footerh2 footerbutton"
-	"footerArticle footerbutton"
-	;
-
-
 }
 
 input[type="text"],input[type="email"]{
@@ -272,7 +275,7 @@ input[type="submit"]{
 
 
 footer{
-	height: var(--footerHeight);
+	
 	width: 100vw;
 	background: #fffa;
 	z-index: 4;
@@ -331,14 +334,135 @@ input[type="submit"]:hover{
 	z-index: 3;
 }
 
-@media (max-width: 1000px){
-	body{
-		max-width: auto;
-	}
+.area *{
+
+	width: 50px;
+	height: 50px;
+	background-color: #848 !important;
+	position: relative;
+	border-radius: 50%;
+	margin: 5px;
+	bottom: calc(100vh - 50px);
+	z-index: 25;
 }
+
+
+
+@media screen and (min-width: 1040px){
+	footer{
+		height: 230px;
+		grid-template-columns: 1fr 150px;
+		grid-template-areas: 
+		"footerh2 footerbutton"
+		"footerArticle footerbutton"
+		;
+	}
+
+
+}
+
+@media screen and (max-width: 1040px){
+	footer{
+		height: 230px;
+		grid-template-columns: 1fr 150px;
+		grid-template-areas: 
+		"footerh2 footerbutton"
+		"footerArticle footerbutton"
+		;
+	}
+
+	article a{
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+	}
+
+	article a i{
+		font-size: 15px;
+	}
+
+
+}
+@media screen and (max-width: 840px){
+	footer{
+		height: 300px;
+		grid-template-columns: 1fr 150px;
+		grid-template-areas: 
+		"footerh2 footerbutton"
+		"footerArticle footerbutton"
+		;
+	}
+
+	article a{
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+	}
+
+	article a i{
+		font-size: 25px;
+	}
+
+
+}
+@media screen and (max-width: 640px){
+	footer{
+		height: 300px;
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+		"footerh2"
+		"footerbutton"
+		"footerArticle"
+		;
+	}
+
+	article a{
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+	}
+
+	article a i{
+		font-size: 25px;
+	}
+
+
+
+}
+
+@media screen and (max-width: 460px){
+	footer{
+		height: 500px;
+		grid-template-columns: 1fr;
+		grid-template-areas: 
+		"footerh2"
+		"footerbutton"
+		"footerArticle"
+		;
+	}
+
+	article a{
+		display: inline-block;
+		text-align: center;
+		margin: auto;
+	}
+
+	article a i{
+		font-size: 25px;
+	}
+
+
+
+
+}
+
+
+
+
 </style>
 </head>
 <body>
+	<div class="area"><div></div><div></div><div></div></div>
 <header id="header">
 
 	<nav id="nav-bar">
@@ -427,6 +551,29 @@ instead of to the guitar's sounding board (top). ... Resonator guitars are of tw
 
 <script type="text/javascript" src="js/js.js"></script>
 <script>
+
+	function anim(){
+		let ele = $(".area div");
+		var tl = new TimelineMax({repeat:-1});
+
+		tl.staggerFromTo(ele,0.5,
+			{y:-20, autoAlpha:0},
+			{y:0,autoAlpha:1, ease:Back.easeInOut},0.05
+			)
+			.fromTo(ele,0.5,
+				{autoAlpha:1,scale:1},
+				{autoAlpha:0,scale:0},0.05
+
+			)
+
+
+
+	}
+anim();
+
+
+
+	
 	const nav = document.getElementsByTagName("nav")[0];
 	document.addEventListener("scroll", (e) => {
 		if (e.pageY > 2){
@@ -435,6 +582,9 @@ instead of to the guitar's sounding board (top). ... Resonator guitars are of tw
 			nav.style.backgroundColor = "#7000";
 		}
 	});
+
+
+
 
 window.onload = function(){
 	var timeLT = new TimelineLite();
@@ -455,6 +605,8 @@ window.onload = function(){
 	timeLT.from($(".switch"),0.5,{opacity:0,y:50})
 			.from($("iframe"),0.5,{opacity:0,y:50},'-=0.25')
 			.from($("footer"),0.5,{opacity:0,y:50},'-=0.25');
+
+	$(".area")[0].style.display = 'none';
 
 
 }
